@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c771937a-2045-4fe0-9769-e442b2645c2d" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="hello-world-pocFlow" doc:id="4036c434-ff0f-4294-ac1d-c743be62f5df" >
+		<http:listener doc:name="Listener" doc:id="cf15b3e9-8e98-48b5-846a-4e2299496b8e" config-ref="HTTP_Listener_config" path="/text"/>
+		<logger level="INFO" doc:name="Logger" doc:id="55778e8a-7703-43f2-a8d0-60874f882462" message='"hii"'/>
+		<set-payload value='"hii"' doc:name="Set Payload" doc:id="b9f6a0ef-2529-4a4d-b5b7-8ba3665a5298" />
+	</flow>
+</mule>
